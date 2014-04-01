@@ -20,7 +20,7 @@ Once the package has been installed using `npm`, using the module is very simple
 #### Node.js ####
 
 ```javascript
-var luhn = require("luhn").luhn;
+var luhn = require("luhn");
 var is_valid = luhn.validate("411111111111"); // should respond true.
 ```
 
