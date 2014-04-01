@@ -1,5 +1,22 @@
-var namespace;
-(function(ns){
+
+(function(root, factory){
+
+	// Set up luhn appropriately for the environment. Start with AMD.
+	if (typeof define === 'function' && define.amd) {
+		define(['exports'], function(exports) {
+			factory(exports);
+		});
+
+	// Next for Node.js or CommonJS
+	} else if (typeof exports !== 'undefined') {
+		factory(exports);
+
+	// Finally, as a browser global.
+	} else {
+		factory(root);
+	}
+
+})(this, function(ns){
 	"use strict";
 	ns.luhn = (function(){
 		function validate(cardNumber){
@@ -47,4 +64,4 @@ var namespace;
 				validate: validate
 			};
 	} ());
-}((typeof exports !== "undefined") ? exports : namespace || window));
+});

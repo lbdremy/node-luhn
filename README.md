@@ -1,7 +1,7 @@
 node-luhn [![Build Status](https://secure.travis-ci.org/JamesEggers1/node-luhn.png)](http://travis-ci.org/JamesEggers1/node-luhn)
 =============
 
-A JavaScript module of the luhn algorithm for Credit Card Validation that works with both client-side JavaScript and Node.js 
+A JavaScript module of the luhn algorithm for Credit Card Validation that works with both client-side JavaScript and Node.js
 
 ## Installation ##
 
@@ -9,7 +9,7 @@ A JavaScript module of the luhn algorithm for Credit Card Validation that works 
 
 ## Testing ##
 
-The luhn module has unit tests built around it than can be used to verify the package before usage.  The tests are written with the Mocha and Should modules and running the below command will import such.  
+The luhn module has unit tests built around it than can be used to verify the package before usage.  The tests are written with the Mocha and Should modules and running the below command will import such.
 
      npm test luhn
 
@@ -32,6 +32,20 @@ While you can copy the `luhn.js` file from the module's installation directory u
     npm run-script luhn client-install
 
 Once you run that command, you'll be prompted to provide the path to which to install `luhn.js` for use by your client-side JavaScript.  At that point, you can reference the file in your html and JavaScript code as shown below.
+
+## Using Luhn with RequireJS ##
+
+```javascript
+	requirejs.config({
+		paths :  {
+		 luhn : 'path/to/src/luhn'
+		}
+	});
+
+	define(['luhn', function(luhn){
+		var is_valid = luhn.validate("411111111111"); // should respond true.
+	}]);
+```
 
 #### Html ####
 
